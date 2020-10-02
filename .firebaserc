@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "test-sqlext": {
+      "hosting": {
+        "Test-Gestionale-Starcode": [
+          "test-sqlext"
+        ]
+      }
+    }
+  }
+}

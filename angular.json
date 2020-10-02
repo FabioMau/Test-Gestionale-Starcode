@@ -127,6 +127,10 @@
               "devServerTarget": "Test-Gestionale-Starcode:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }
