@@ -1,0 +1,13 @@
+<main>
+    <div *ngIf="!(afAuth.authState | async)">
+        <app-email-signin></app-email-signin>
+    </div>
+
+    <div *ngIf="afAuth.authState | async as user" class="logout">
+        <p>
+            Accesso tramite: <strong>{{ user.email }}</strong>
+        </p>
+
+        <button mat-stroked-button (click)="afAuth.signOut()">Logout</button>
+    </div>
+</main>

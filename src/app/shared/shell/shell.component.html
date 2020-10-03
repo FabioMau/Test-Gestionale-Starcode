@@ -19,40 +19,16 @@
 
       <span class="fill-space"></span>
       <div *ngIf="!(isHandset$ | async)">
-        <a mat-button routerLink="/">Link 1</a>
-        <a mat-button routerLink="/">Link 2</a>
+        <a mat-button routerLink="/pagamenti">Pagamenti</a>
 
         <a mat-button routerLink="/login" *ngIf="!(afAuth.authState | async)">Login</a>
         <a mat-button routerLink="/login" *ngIf="afAuth.authState | async as user">
-          <img class="avatar" [src]="user.photoURL || 'assets/default-user.svg'">
+          <mat-icon>person</mat-icon>
           Profilo
         </a>
 
       </div>
 
-      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-        <mat-icon>more_vert</mat-icon>
-      </button>
-
-      <mat-menu #menu="matMenu">
-        <a mat-menu-item href="/">
-          <i>▶</i>
-          <span>Link</span>
-        </a>
-        <a mat-menu-item href="/">
-          <i>▶</i>
-          <span>Link</span>
-        </a>
-        <a mat-menu-item href="/">
-          <i>▶</i>
-          <span>Link</span>
-        </a>
-
-        <a mat-menu-item href="/">
-          <i>▶</i>
-          <span>Link</span>
-        </a>
-      </mat-menu>
     </mat-toolbar>
 
     <ng-content></ng-content>

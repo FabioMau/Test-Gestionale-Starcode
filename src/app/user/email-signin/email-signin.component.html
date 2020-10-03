@@ -1,0 +1,44 @@
+<mat-card>
+
+    <div *ngIf="isLogin">
+        <h1>Accedi</h1>
+    </div>
+
+    <div *ngIf="isPasswordReset">
+        <h1>Reset Password</h1>
+        <button size="small" mat-stroked-button (click)="changeType('login')">Accedi</button>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <mat-form-field [color]="email.valid && 'accent'">
+            <input matInput formControlName="email" type="email" placeholder="Email" autocomplete="off" />
+
+            <mat-error *ngIf="email.invalid && email.dirty">
+                Inserisci un'email
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field [color]="email.valid && 'accent'" *ngIf="!isPasswordReset">
+            <input matInput formControlName="password" type="password" placeholder="Password" autocomplete="off" />
+
+            <mat-error *ngIf="password.invalid && password.dirty">
+                Inserisci una password
+            </mat-error>
+        </mat-form-field>
+
+        <mat-error class="server-error">{{ serverMessage }}</mat-error>
+
+        <button *ngIf="isPasswordReset" mat-raised-button type="submit" [disabled]="loading">
+            Invia l'email per il reset
+        </button>
+
+        <button *ngIf="!isPasswordReset" mat-raised-button color="accent" type="submit"
+            [disabled]="form.invalid || loading">
+            Invia
+        </button>
+    </form>
+
+    <button mat-button *ngIf="isLogin && !isPasswordReset" (click)="changeType('reset')">
+        Password dimenticata?
+    </button>
+</mat-card>
