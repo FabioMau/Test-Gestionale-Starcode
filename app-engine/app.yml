@@ -1,8 +1,8 @@
 runtime: nodejs12
 
 env_variables:
-  SQL_USER: test_starcode
-  SQL_PASSWORD: K0v3r!P@ss5
-  SQL_DATABASE: test
-  SQL_PORT: 5555
-  SQL_HOST: 5.89.65.172
+  SQL_USER:
+  SQL_PASSWORD:
+  SQL_DATABASE:
+  SQL_PORT:
+  SQL_HOST:
