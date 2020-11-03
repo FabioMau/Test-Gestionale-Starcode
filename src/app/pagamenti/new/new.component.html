@@ -1,1 +1,27 @@
-<p>new works!</p>
+<h1 mat-dialog-title>Inserisci pagamento</h1>
+<div mat-dialog-content>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <mat-form-field [color]="ragione.valid && 'accent'">
+            <input matInput formControlName="ragione" type="text" placeholder="Ragione Sociale" autocomplete="off" />
+
+            <mat-error *ngIf="ragione.invalid && ragione.dirty">
+                Inserisci un'email
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Select</mat-label>
+
+            <mat-select [formControl]="pagamento" required>
+                <mat-option *ngFor="let item of pagamenti | async" [value]="item.codice">
+                    {{ item.descrizione }}</mat-option>
+            </mat-select>
+
+            <mat-error *ngIf="pagamento.invalid && pagamento.dirty">Seleziona un metodo</mat-error>
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Annulla</button>
+    <button mat-raised-button color="primary" (click)="onSubmit()">Inserisci</button>
+</div>

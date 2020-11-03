@@ -9,6 +9,7 @@
 
 # dependencies
 /node_modules
+/app-engine/node_modules
 
 # profiling files
 chrome-profiler-events*.json
@@ -47,5 +48,8 @@ Thumbs.db
 
 #Other
 firebase-debug.log
+environment.prod.ts
+environment.ts
 .browserslistrc
 .editorconfig
+app.yaml
